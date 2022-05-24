@@ -1,0 +1,91 @@
+
+objetos = ['lápiz','borrador','lapicero','regla']
+inventario = ['inventario']
+salir= True
+
+print()
+print("██████╗░██╗███████╗███╗░░██╗██╗░░░██╗███████╗███╗░░██╗██╗██████╗░░█████╗░")
+print("██╔══██╗██║██╔════╝████╗░██║██║░░░██║██╔════╝████╗░██║██║██╔══██╗██╔══██╗")
+print("██████╦╝██║█████╗░░██╔██╗██║╚██╗░██╔╝█████╗░░██╔██╗██║██║██║░░██║██║░░██║")
+print("██╔══██╗██║██╔══╝░░██║╚████║░╚████╔╝░██╔══╝░░██║╚████║██║██║░░██║██║░░██║")
+print("██████╦╝██║███████╗██║░╚███║░░╚██╔╝░░███████╗██║░╚███║██║██████╔╝╚█████╔╝")
+print("╚═════╝░╚═╝╚══════╝╚═╝░░╚══╝░░░╚═╝░░░╚══════╝╚═╝░░╚══╝╚═╝╚═════╝░░╚════╝░")
+print()
+seguir_menu=(input("Presione ENTER para continuar"))
+import time
+time.sleep(1)
+
+def menu(): #listo
+    print()
+    print("-----------------------------")
+    print("MENÚ:")
+    print("1. Ver objetos en Almacén")
+    print("2. Dejar objeto en almacén")
+    print("3. Retirar objeto del almacén")
+    print("4. Ver inventario")
+    print("5. Salir")
+    print("-----------------------------")
+    print()
+    
+    accion = int(input("Elija accion a realizar: "))
+    if accion == 1:
+        ver_objeto_almacen()
+        input("Presione ENTER para regresar al MENÚ")
+        menu()
+    elif accion == 2:
+        dejar_objeto_almacen()
+        menu()
+    elif accion == 3:
+        retirar_objeto_almacen()
+    elif accion ==4:
+        ver_inventario()
+        menu()
+    elif accion == 5:
+        Salir()
+        salir = True
+    else:
+        print()
+        print("--------------------------------")
+        print("Ingrese solo los valores válidos")
+        print("--------------------------------")
+def ver_objeto_almacen():#listo
+    print()
+    print("En el almacén queda: ",str(objetos))
+    print()
+    menu()
+def dejar_objeto_almacen(): #pendiente
+    print()
+    print("falta terminar")
+    menu()
+def retirar_objeto_almacen(): #listo
+    global objetos
+    print()
+    print("1. Lápiz")
+    print("2. Borrador")
+    print("3. Lapicero")
+    print("4. Regla")
+    print()
+    accion2 = int(input("Que objeto desea retirar: "))
+    retiro=int(accion2)
+    for i in objetos: 
+        if retiro== 1:
+             objetos.pop(0)
+        elif retiro==2:
+             objetos.pop(1)
+        elif retiro ==3:
+            objetos.pop(2)
+        elif retiro ==4:
+            objetos.pop(3)
+        print()
+        print("Se retiró el objeto con éxito")
+        menu()
+def ver_inventario():#listo
+    print()
+    print("Tienes en el inventario: ",inventario)  
+    print()
+    menu()
+def Salir():#listo
+    print("Hasta pronto")
+    while salir == True:
+        break
+menu()
