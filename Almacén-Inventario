@@ -1,7 +1,6 @@
-
-objetos = ['lápiz','borrador','lapicero','regla']
-inventario = ['inventario']
-salir= True
+objetos = ['lápiz', "borrador", 'lapicero', 'regla']
+inventario = []
+salir = True
 
 print()
 print("██████╗░██╗███████╗███╗░░██╗██╗░░░██╗███████╗███╗░░██╗██╗██████╗░░█████╗░")
@@ -11,11 +10,13 @@ print("██╔══██╗██║██╔══╝░░██║╚█�
 print("██████╦╝██║███████╗██║░╚███║░░╚██╔╝░░███████╗██║░╚███║██║██████╔╝╚█████╔╝")
 print("╚═════╝░╚═╝╚══════╝╚═╝░░╚══╝░░░╚═╝░░░╚══════╝╚═╝░░╚══╝╚═╝╚═════╝░░╚════╝░")
 print()
-seguir_menu=(input("Presione ENTER para continuar"))
-import time
-time.sleep(1)
+seguir_menu = (input("Presione ENTER para continuar"))
 
-def menu(): #listo
+
+# import time
+# time.sleep(1)
+
+def menu():  # pendiente
     print()
     print("-----------------------------")
     print("MENÚ:")
@@ -26,7 +27,6 @@ def menu(): #listo
     print("5. Salir")
     print("-----------------------------")
     print()
-    
     accion = int(input("Elija accion a realizar: "))
     if accion == 1:
         ver_objeto_almacen()
@@ -37,55 +37,72 @@ def menu(): #listo
         menu()
     elif accion == 3:
         retirar_objeto_almacen()
-    elif accion ==4:
+        input("Que objeto desea retirar: ")
+    elif accion == 4:
         ver_inventario()
         menu()
     elif accion == 5:
         Salir()
         salir = True
-    else:
-        print()
-        print("--------------------------------")
-        print("Ingrese solo los valores válidos")
-        print("--------------------------------")
-def ver_objeto_almacen():#listo
+
+
+def ver_objeto_almacen():  # listo
     print()
-    print("En el almacén queda: ",str(objetos))
+    print("En el almacén queda: ", objetos)
     print()
-    menu()
-def dejar_objeto_almacen(): #pendiente
+
+
+def dejar_objeto_almacen():  # pendiente
+    try:
+        inventario = None
+    except IndexError:
+        print("inventario vacio")
+
     print()
-    print("falta terminar")
-    menu()
-def retirar_objeto_almacen(): #listo
-    global objetos
+    print("1.", inventario[0])
+    print("2.", inventario[1])
+    print("3.", inventario[2])
+    print("4.", inventario[3])
+    accion2 = int(input("Que objeto desea dejar: "))
+    dejar = int(accion2)
+    for i in inventario:
+        if dejar == 1:
+            objetos.append(inventario[0])
+
+
+def retirar_objeto_almacen():  # pendiente
     print()
     print("1. Lápiz")
     print("2. Borrador")
     print("3. Lapicero")
     print("4. Regla")
     print()
-    accion2 = int(input("Que objeto desea retirar: "))
-    retiro=int(accion2)
-    for i in objetos: 
-        if retiro== 1:
-             objetos.pop(0)
-        elif retiro==2:
-             objetos.pop(1)
-        elif retiro ==3:
-            objetos.pop(2)
-        elif retiro ==4:
-            objetos.pop(3)
-        print()
-        print("Se retiró el objeto con éxito")
-        menu()
-def ver_inventario():#listo
-    print()
-    print("Tienes en el inventario: ",inventario)  
+    accion3 = int(input("Que objeto desea retirar: "))
+    retiro = int(accion3)
+    if retiro == 1:
+        inventario.append(objetos.pop(0))
+    elif retiro == 2:
+        inventario.append(objetos.pop(1))
+    elif retiro == 3:
+        inventario.append(objetos.pop(2))
+    elif retiro == 4:
+        inventario.append(objetos.pop(3))
+    else:
+        print("ingresevalor valido")
     print()
     menu()
-def Salir():#listo
+
+
+def ver_inventario():  # listo
+    print()
+    print("Tienes en el inventario: ", inventario)
+    print()
+
+
+def Salir():  # listo
     print("Hasta pronto")
     while salir == True:
         break
+
+
 menu()
