@@ -1,6 +1,6 @@
 # Permanente-2a
 <>Este programa es un sistema de almacenamiento de datos que pueden camibar de destino siendo este una 
-almacén e inventario, el programa funciona de la siguiente manera:
+almacén e inventario, el programa funciona de la siguiente manera
 
 -En las primeras lineas envia un saludo para luego segui al menu
 -----------------------------
@@ -29,3 +29,6 @@ def ver_objeto_almacen():
  -Por ultimo definimos el ver inventario para saber que objetos están en la lista
  
  Tienes en el inventario:  ['lápiz']
+ 
+ -Para terminar de ejecutar el codigo ponemos 5 y se ejecutará la definicion de salir
+ a partir del bucle while
